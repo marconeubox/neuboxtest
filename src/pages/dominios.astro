@@ -1,0 +1,11 @@
+---
+import Card from '../components/Card.jsx';
+const title = 'Dominios - Astro + React';
+import '../styles/globals.css';
+---
+<html lang="es">
+  <head><meta charset="utf-8" /><title>{title}</title></head>
+  <body class="min-h-screen flex items-center justify-center bg-slate-50">
+    <Card title={title} subtitle="Encuentra tu dominio perfecto" client:load />
+  </body>
+</html>

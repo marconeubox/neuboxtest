@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/cloud-vps/Hero';
+import Plans from '../components/cloud-vps/Plans';
+import Calculator from '../components/cloud-vps/Calculator';
+import Features from '../components/cloud-vps/Features';
+import Comparison from '../components/cloud-vps/Comparison';
+import FAQ from '../components/cloud-vps/FAQ';
+import Contact from '../components/cloud-vps/Contact';
+---
+
+<Layout>
+	<head>
+		<title>Cloud VPS México | Servidores Virtuales Escalables, SSD NVMe, 99.9% Uptime</title>
+		<meta name="description" content="Cloud VPS de alto rendimiento en México. Recursos escalables, SSD NVMe, panel intuitivo y soporte 24/7. Calculadora de costos incluida. ¡Prueba gratis 7 días!" />
+		<link rel="canonical" href="https://hospedando.com.mx/cloud-vps" />
+		<meta property="og:title" content="Cloud VPS México | Servidores Virtuales Escalables" />
+		<meta property="og:description" content="Cloud VPS de alto rendimiento con recursos escalables y soporte 24/7" />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+	</head>
+	<main class="cloud-vps-page">
+		<Hero client:load />
+		<Plans client:load />
+		<Calculator client:load />
+		<Features client:load />
+		<Comparison client:load />
+		<FAQ client:load />
+		<Contact client:load />
+	</main>
+</Layout>
+
+<style>
+	.cloud-vps-page {
+		background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+		min-height: 100vh;
+		overflow-x: hidden;
+	}
+</style>

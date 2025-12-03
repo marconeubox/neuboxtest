@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/vps/Hero';
+import Plans from '../components/vps/Plans';
+import Features from '../components/vps/Features';
+import Comparison from '../components/vps/Comparison';
+import Testimonials from '../components/vps/Testimonials';
+import FAQ from '../components/vps/FAQ';
+import Contact from '../components/vps/Contact';
+---
+
+<Layout>
+	<main class="vps-page">
+		<Hero client:load />
+		<Plans client:load />
+		<Features client:load />
+		<Comparison client:load />
+		<Testimonials client:load />
+		<FAQ client:load />
+		<Contact client:load />
+	</main>
+</Layout>
+
+<style>
+	.vps-page {
+		background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+		min-height: 100vh;
+		overflow-x: hidden;
+	}
+</style>

@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/space-travel/Hero';
+import Services from '../components/space-travel/Services';
+import Destinations from '../components/space-travel/Destinations';
+import Testimonials from '../components/space-travel/Testimonials';
+---
+
+<Layout>
+	<main class="space-travel-page">
+		<Hero client:load />
+		<Services client:load />
+		<Destinations client:load />
+		<Testimonials client:load />
+	</main>
+</Layout>
+
+<style>
+	.space-travel-page {
+		background: linear-gradient(135deg, #0B1426 0%, #1E293B 50%, #0F172A 100%);
+		min-height: 100vh;
+		overflow-x: hidden;
+	}
+</style>

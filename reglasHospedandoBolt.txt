@@ -1,0 +1,166 @@
+# 📌 Prompt Rules para Bolt.new
+
+⚡ **Contexto del proyecto**  
+Estoy trabajando en un proyecto de landings con **Astro + React + Tailwind + Shadcn + Lucide + Inter**, usando exclusivamente archivos **.jsx (no TypeScript)**.
+
+La raíz del proyecto es:  
+```
+~/project/
+```
+Ahí está el `package.json` y deben instalarse todas las dependencias.  
+**IMPORTANTE**: Si no estás en esa ruta, cámbiate antes de generar cualquier archivo.
+
+---
+
+## 🎯 Objetivo  
+Generar landings dinámicas y SEO-friendly que funcionen correctamente en:  
+```
+http:/localhost:3000/<slug>
+```
+
+Cada landing debe incluir:  
+- Una página `.astro` en `src/pages/<slug>.astro`.  
+- Componentes únicos para esa landing en `src/components/<slug>/<slug>.jsx`.  
+- Archivos de UI de Shadcn en `src/components/ui/<slug>.jsx`.  
+- Assets (imágenes, íconos, etc.) en `src/assets/<slug>/`.  
+- ❌ No modificar Header ni Footer globales.  
+
+---
+
+## ⚙️ Reglas Técnicas  
+
+1. **Dependencias** siempre en:  
+   ```
+   ~/project/package.json
+   ```
+
+2. **Estructura de landings**:  
+   ```
+   /
+     /src
+       /assets/<slug>/
+       /components/<slug>/<slug>.jsx
+       /components/ui/<slug>.jsx
+       /pages/<slug>.astro
+   ```
+
+3. **Convenciones**:  
+   - Todo en **.jsx**.  
+   - Tipografía: **Inter**.  
+   - Íconos: **Lucide-react**.  
+   - Estilos: **Tailwind + Shadcn**.  
+
+4. **Comandos de flujo obligatorio** al terminar cualquier acción:  
+   ```bash
+   cd ~/project/
+   npm install
+   npm run build
+   npm run dev
+   ```
+
+---
+
+## 🛠️ Acciones permitidas  
+
+### 🔹 Generar nueva landing `<slug>`  
+- Crear página en:  
+  `~/project/src/pages/<slug>.astro`  
+- Crear componentes únicos en:  
+  `~/project/src/components/<slug>/<slug>.jsx`  
+- Crear UI components en:  
+  `~/project/src/components/ui/<slug>.jsx`  
+- Crear assets en:  
+  `~/project/src/assets/<slug>/`  
+
+### 🔹 Editar landing `<slug>`  
+- Solo puedes **editar/actualizar** archivos existentes:  
+  - `~/project/src/pages/<slug>.astro`  
+  - `~/project/src/components/<slug>/*.jsx`  
+- ❌ No puedes crear nuevas páginas, componentes ni mover archivos.  
+
+---
+
+## 🚦 Reglas de ejecución de comandos  
+
+- Nunca ejecutar `git commit`, `git push`, ni modificar archivos fuera de la ruta `~/project/`.  
+- Nunca eliminar archivos del proyecto.  
+- Solo ejecutar:  
+  ```bash
+  cd ~/project/
+  npm install
+  npm run build
+  npm run dev
+  ```
+
+---
+
+## 📑 Ejemplo: Solicitud de nueva landing  
+
+### Prompt:  
+```
+Crear nueva landing "reseller".
+Global requirements:
+Fast (Core Web Vitals), responsive, accessible (WCAG AA), SEO-first. Sticky header CTA and sticky bottom CTA on mobile. 
+Add JSON-LD for BreadcrumbList, Product/Offer (one per plan), and FAQPage. 
+Track GA4 events: select_plan, sticky_cta_click, open_whatsapp, calc_roi_submit, table_tab_switch. 
+Copy tone: claro, directo, enfocado a negocio (MX).
+
+Meta:
+<title>Reseller Hosting en México | WHM/cPanel, Marca Blanca, Soporte 24/7</title> 
+<meta name="description" content="Vende hosting con tu propia marca. Planes de Reseller con WHM/cPanel, migración gratuita, uptime 99.9% y soporte 24/7. Empieza hoy y haz crecer tus ingresos."> 
+<link rel="canonical" href="https:/hospedando.com.mx/reseller-hosting" />
+
+Data (editable JSON; sync with repo):
+{
+  "currency": "MXN",
+  "iva_note": "Precios en Pesos Mexicanos + IVA. Promoción 1er año.",
+  "plans": [
+    { "id": "R25", "name": "R25", "diskGB": 25, "transfer": "LIBRE", "mysqlSSD": true, "freeDomain": ".COM ó .COM.MX", "hostedDomains": 100, "mail": "LIBRE", "pricePromo": 1129, "priceRegular": 1649, "billing": "anual", "bestseller": false },
+    { "id": "R50", "name": "R50", "diskGB": 50, "transfer": "LIBRE", "mysqlSSD": true, "freeDomain": ".COM ó .COM.MX", "hostedDomains": 250, "mail": "LIBRE", "pricePromo": 2179, "priceRegular": 3189, "billing": "anual", "bestseller": true },
+    { "id": "R75", "name": "R75", "diskGB": 75, "transfer": "LIBRE", "mysqlSSD": true, "freeDomain": ".COM ó .COM.MX", "hostedDomains": 300, "mail": "LIBRE", "pricePromo": 2849, "priceRegular": 4179, "billing": "anual", "bestseller": false },
+    { "id": "R100", "name": "R100", "diskGB": 100, "transfer": "LIBRE", "mysqlSSD": true, "freeDomain": ".COM ó .COM.MX", "hostedDomains": "LIBRE", "mail": "LIBRE", "pricePromo": 4129, "priceRegular": 6049, "billing": "anual", "bestseller": false }
+  ],
+  "benefits": [
+    "Marca blanca total",
+    "WHM/cPanel para tus clientes",
+    "Migración gratuita",
+    "Soporte 24/7",
+    "Uptime 99.9%",
+    "Infraestructura optimizada (LiteSpeed/CloudLinux)"
+  ],
+  "faq": [
+    {"q":"¿Qué incluye un plan de Reseller?","a":"Acceso WHM para crear paquetes, cPanel para tus clientes, marca blanca, migración gratuita y soporte 24/7."},
+    {"q":"¿Puedo migrar mis clientes?","a":"Sí. Nuestro equipo migra cPanel a cPanel sin costo en la mayoría de los casos."},
+    {"q":"¿Cuántas cuentas cPanel puedo crear?","a":"Depende del espacio y política de uso justo del plan elegido."},
+    {"q":"¿Dónde están los servidores y el uptime?","a":"Servidores de alto desempeño con uptime del 99.9%."},
+    {"q":"¿Incluye dominio gratis?","a":"Sí, .COM o .COM.MX el primer año, sujeto a disponibilidad."},
+    {"q":"¿Diferencia Reseller vs VPS?","a":"Reseller es gestionado con WHM/cPanel y pensado para revender fácilmente; VPS ofrece control total y recursos dedicados."},
+    {"q":"¿Puedo escalar?","a":"Puedes cambiar de plan cuando lo necesites, sin perder información."},
+    {"q":"¿Cómo funciona el correo?","a":"Cuentas de correo incluidas; aplica política de envío responsable."}
+  ]
+}
+
+Page sections:
+- Hero: H1: “Reseller Hosting en México: vende hosting con tu propia marca”  
+  Sub: “WHM/cPanel, marca blanca, migración gratuita y soporte 24/7”  
+  Primary CTA: “Contratar ahora” (scroll to plans) [event: sticky_cta_click]  
+  Secondary CTA: “Habla con un asesor” (WhatsApp/Chat) [event: open_whatsapp]  
+- Trust badges (99.9% uptime, Soporte 24/7, Migración gratis)  
+- Pricing table: Grid con 4 PlanCards (R50 destacado “Más vendido”).  
+- Benefits grid: 6 ítems con iconos, copy corto.  
+- How it works (4 pasos): Compra tu plan → Crea paquetes en WHM → Asigna cPanel a clientes → Factura con tu marca.  
+- ROI Calculator (inputs: precio sitio, # clientes, costo anual) → output utilidad y break-even. Emitir `calc_roi_submit`.  
+- Comparison section: Reseller vs Hosting vs VPS.  
+- Migrations & Support: bloque de confianza.  
+- Testimonials (opcional).  
+- FAQ (accordion) + JSON-LD FAQPage.  
+- Final CTA: repetir beneficio + botón “Contratar R50” (o último plan visto).  
+```
+
+---
+
+✅ Con este prompt Bolt.new entenderá:  
+- La **ruta absoluta correcta**.  
+- La **estructura obligatoria**.  
+- La **prohibición de eliminar/crear fuera del flujo**.  
+- El **flujo final de comandos** para garantizar que la app siempre corra.  

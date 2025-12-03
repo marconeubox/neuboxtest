@@ -1,0 +1,10 @@
+---
+import Card from '../components/Card.jsx';
+const title = 'Hosting - Astro + React';
+---
+<html lang="es">
+  <head><meta charset="utf-8" /><title>{title}</title></head>
+  <body class="min-h-screen flex items-center justify-center bg-gray-50">
+    <Card title={title} subtitle="Planes rápidos, seguros y escalables" client:load />
+  </body>
+</html>

@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/wordpress/Hero';
+import Plans from '../components/wordpress/Plans';
+import PlanComparison from '../components/wordpress/PlanComparison';
+import Benefits from '../components/wordpress/Benefits';
+import WhatIsWordPress from '../components/wordpress/WhatIsWordPress';
+import ContactForm from '../components/wordpress/ContactForm';
+import FAQ from '../components/wordpress/FAQ';
+import Testimonials from '../components/wordpress/Testimonials';
+import SpeedTests from '../components/wordpress/SpeedTests';
+import SecurityTests from '../components/wordpress/SecurityTests';
+import CompatibilityTests from '../components/wordpress/CompatibilityTests';
+import IntegrationTests from '../components/wordpress/IntegrationTests';
+---
+
+<Layout>
+	<main class="wordpress-page">
+		<Hero client:load />
+		<Plans client:load />
+		<PlanComparison client:load />
+		<Benefits client:load />
+		<WhatIsWordPress client:load />
+		<SpeedTests client:load />
+		<SecurityTests client:load />
+		<CompatibilityTests client:load />
+		<IntegrationTests client:load />
+		<Testimonials client:load />
+		<FAQ client:load />
+		<ContactForm client:load />
+	</main>
+</Layout>
+
+<style>
+	.wordpress-page {
+		background: linear-gradient(135deg, #21759B 0%, #1E3A8A 50%, #7C3AED 100%);
+		min-height: 100vh;
+		overflow-x: hidden;
+	}
+</style>
